@@ -7,7 +7,7 @@
 	<module>
     <web>
       <web-uri>projekt_web.war</web-uri>
-      <context-root>people</context-root>
+      <context-root>projekt</context-root>
     </web>
   </module>
   <module>
