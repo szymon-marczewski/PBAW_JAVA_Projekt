@@ -63,6 +63,12 @@
 			    </p:inputText>
 				<p:message for="p-availability" display="icon"/>
 				
+				<h:outputLabel for="p-description" value="description:" />
+				<p:inputText id="p-description" value="#{productEditBB.product.description}" 
+					required="false">
+			    </p:inputText>
+				<p:message for="p-description" display="icon"/>
+				
 			</h:panelGrid>
 
 			<p:messages id="msgs" />
