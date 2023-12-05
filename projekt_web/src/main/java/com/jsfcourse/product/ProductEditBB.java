@@ -40,11 +40,7 @@ public class ProductEditBB implements Serializable {
 	}
 
 	public void onLoad() throws IOException {
-		// 1. load person passed through session
-		// HttpSession session = (HttpSession) context.getExternalContext().getSession(true);
-		// loaded = (Person) session.getAttribute("person");
-
-		// 2. load person passed through flash
+		
 		loaded = (Product) flash.get("product");
 
 		// cleaning: attribute received => delete it from session
@@ -53,10 +49,7 @@ public class ProductEditBB implements Serializable {
 			// session.removeAttribute("person");
 		} else {
 			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Błędne użycie systemu", null));
-			// if (!context.isPostback()) { //possible redirect
-			// context.getExternalContext().redirect("personList.xhtml");
-			// context.responseComplete();
-			// }
+			
 		}
 
 	}
@@ -68,7 +61,7 @@ public class ProductEditBB implements Serializable {
 		}
 
 		try {
-			if (product.getIdproduct() == null) {
+			if (product.getIdProduct() == null) {
 				// new record
 				productDAO.create(product);
 			} else {

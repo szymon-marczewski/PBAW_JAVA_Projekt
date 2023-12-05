@@ -43,10 +43,6 @@ public class ProductEditGETBB implements Serializable {
 				product = loaded;
 			} else {
 				context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Błędne użycie systemu", null));
-				// if (!context.isPostback()) { // possible redirect
-				// context.getExternalContext().redirect("productList.xhtml");
-				// context.responseComplete();
-				// }
 			}
 		}
 

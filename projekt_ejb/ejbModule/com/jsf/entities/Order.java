@@ -2,9 +2,8 @@ package com.jsf.entities;
 
 import java.io.Serializable;
 import jakarta.persistence.*;
-import java.util.Date;
 import java.util.List;
-
+import java.util.Date;
 
 /**
  * The persistent class for the orders database table.

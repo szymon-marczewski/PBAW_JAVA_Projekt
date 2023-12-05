@@ -14,7 +14,7 @@ import jakarta.faces.context.Flash;
 import jakarta.servlet.http.HttpSession;
 
 import com.jsf.dao.ProductDAO;
-import com.jsf.entities.Person;
+import com.jsf.entities.Product;
 
 @Named
 @RequestScoped
@@ -63,23 +63,14 @@ public class ProductListBB {
 
 	public String newProduct(){
 		Product product = new Product();
-		
-		//1. Pass object through session
-		//HttpSession session = (HttpSession) extcontext.getSession(true);
-		//session.setAttribute("person", person);
-		
-		//2. Pass object through flash	
+
 		flash.put("product", product);
 		
 		return PAGE_PRODUCT_EDIT;
 	}
 
 	public String editProduct(Product product){
-		//1. Pass object through session
-		//HttpSession session = (HttpSession) extcontext.getSession(true);
-		//session.setAttribute("person", person);
-		
-		//2. Pass object through flash 
+
 		flash.put("product", product);
 		
 		return PAGE_PRODUCT_EDIT;
