@@ -17,7 +17,8 @@ public class Product implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int idProduct;
+	@Column(unique = true, nullable = false)
+	private Integer idProduct;
 
 	private int availability;
 
@@ -38,7 +39,7 @@ public class Product implements Serializable {
 	public Product() {
 	}
 
-	public int getIdProduct() {
+	public Integer getIdProduct() {
 		return this.idProduct;
 	}
 

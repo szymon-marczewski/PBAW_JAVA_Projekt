@@ -37,7 +37,7 @@ public class ProductDAO {
 	public List<Product> getFullList() {
 		List<Product> list = null;
 
-		Query query = em.createQuery("select p from Person p");
+		Query query = em.createQuery("select p from Product p");
 
 		try {
 			list = query.getResultList();

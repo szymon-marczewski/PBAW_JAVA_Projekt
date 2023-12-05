@@ -31,7 +31,7 @@ public class ProductListBB {
 	Flash flash;
 	
 	@EJB
-	ProductDAO personDAO;
+	ProductDAO productDAO;
 		
 	public String getType() {
 		return type;

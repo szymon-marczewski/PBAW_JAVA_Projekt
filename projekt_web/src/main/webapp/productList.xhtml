@@ -71,7 +71,7 @@
 				<f:facet name="header">
 					<h:outputText value="description" />
 				</f:facet>
-				<h:outputText value="#{p.decription}" />
+				<h:outputText value="#{p.description}" />
 			</p:column>
 
 			<p:column>
@@ -86,7 +86,7 @@
 					action="#{productListBB.deleteProduct(p)}" update="@form" />
 
 				<p:button outcome="productEditGET" value="Edit (GET)">
-					<f:param name="p" value="#{p.idproduct}" />
+					<f:param name="p" value="#{p.idProduct}" />
 				</p:button>
 			</p:column>
 

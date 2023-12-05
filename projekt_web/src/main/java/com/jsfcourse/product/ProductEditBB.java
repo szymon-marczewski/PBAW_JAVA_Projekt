@@ -43,10 +43,9 @@ public class ProductEditBB implements Serializable {
 		
 		loaded = (Product) flash.get("product");
 
-		// cleaning: attribute received => delete it from session
 		if (loaded != null) {
 			product = loaded;
-			// session.removeAttribute("person");
+			
 		} else {
 			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Błędne użycie systemu", null));
 			

@@ -36,8 +36,8 @@ public class ProductEditGETBB implements Serializable {
 
 	public void onLoad() throws IOException {
 		if (!context.isPostback()) {
-			if (!context.isValidationFailed() && product.getIdproduct() != null) {
-				loaded = productDAO.find(product.getIdproduct());
+			if (!context.isValidationFailed() && product.getIdProduct() != null) {
+				loaded = productDAO.find(product.getIdProduct());
 			}
 			if (loaded != null) {
 				product = loaded;
@@ -55,7 +55,7 @@ public class ProductEditGETBB implements Serializable {
 		}
 
 		try {
-			if (product.getIdproduct() == null) {
+			if (product.getIdProduct() == null) {
 				// new record
 				productDAO.create(product);
 			} else {
