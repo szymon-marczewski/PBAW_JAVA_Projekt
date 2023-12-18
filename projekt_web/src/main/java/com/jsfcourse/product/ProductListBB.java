@@ -6,6 +6,7 @@ import java.util.Map;
 
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
+import jakarta.persistence.Column;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.ejb.EJB;
 import jakarta.faces.context.ExternalContext;
@@ -22,7 +23,7 @@ public class ProductListBB {
 	private static final String PAGE_PRODUCT_EDIT = "productEdit?faces-redirect=true";
 	private static final String PAGE_STAY_AT_THE_SAME = null;
 
-	private String type;
+	private String TYPE;
 		
 	@Inject
 	ExternalContext extcontext;
@@ -34,11 +35,11 @@ public class ProductListBB {
 	ProductDAO productDAO;
 		
 	public String getType() {
-		return type;
+		return TYPE;
 	}
 
-	public void setType(String type) {
-		this.type = type;
+	public void setType(String TYPE) {
+		this.TYPE = TYPE;
 	}
 
 	public List<Product> getFullList(){
@@ -51,8 +52,8 @@ public class ProductListBB {
 		//1. Prepare search params
 		Map<String,Object> searchParams = new HashMap<String, Object>();
 		
-		if (type != null && type.length() > 0){
-			searchParams.put("type", type);
+		if (TYPE != null && TYPE.length() > 0){
+			searchParams.put("TYPE", TYPE);
 		}
 		
 		//2. Get list

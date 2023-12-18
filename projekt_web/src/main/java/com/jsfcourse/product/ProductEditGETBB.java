@@ -18,7 +18,7 @@ import com.jsf.entities.Product;
 public class ProductEditGETBB implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	private static final String PAGE_PERSON_LIST = "productList?faces-redirect=true";
+	private static final String PAGE_PRODUCT_LIST = "productList?faces-redirect=true";
 	private static final String PAGE_STAY_AT_THE_SAME = null;
 
 	private Product product = new Product();
@@ -69,6 +69,6 @@ public class ProductEditGETBB implements Serializable {
 			return PAGE_STAY_AT_THE_SAME;
 		}
 
-		return PAGE_PERSON_LIST;
+		return PAGE_PRODUCT_LIST;
 	}
 }

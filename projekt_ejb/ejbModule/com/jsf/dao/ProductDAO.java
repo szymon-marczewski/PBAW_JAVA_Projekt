@@ -34,17 +34,18 @@ public class ProductDAO {
 		return em.find(Product.class, id);
 	}
 
+	
 	public List<Product> getFullList() {
 		List<Product> list = null;
 
-		Query query = em.createQuery("select p from Product p");
+		Query query = em.createQuery("SELECT p FROM Products p");
 
 		try {
 			list = query.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
+		
 		return list;
 	}
 
@@ -53,11 +54,26 @@ public class ProductDAO {
 
 		// 1. Build query string with parameters
 		String select = "select p ";
-		String from = "from Product p ";
+		String from = "from Products p ";
 		String where = "";
+		String orderby = "order by p.type asc";
 
-		Query query = em.createQuery(select + from + where);
+		String type = (String) searchParams.get("type");
+		if (type != null) {
+			if (where.isEmpty()) {
+				where = "where ";
+			} else {
+				where += "and ";
+			}
+			where += "p.type like :type ";
+		}
+		
+		Query query = em.createQuery(select + from + where + orderby);
 
+		if (type != null) {
+			query.setParameter("type", type+"%");
+		}
+		
 		try {
 			list = query.getResultList();
 		} catch (Exception e) {
