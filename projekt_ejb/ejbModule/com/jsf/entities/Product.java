@@ -33,8 +33,8 @@ public class Product implements Serializable {
 	private String type;
 
 	//bi-directional many-to-one association to Transaction
-	@OneToMany(mappedBy="product")
-	private List<Transaction> transactions;
+	//@OneToMany(mappedBy="product")
+	//private List<Transaction> transactions;
 
 	public Product() {
 	}
@@ -94,7 +94,7 @@ public class Product implements Serializable {
 	public void setType(String type) {
 		this.type = type;
 	}
-
+	/*
 	public List<Transaction> getTransactions() {
 		return this.transactions;
 	}
@@ -116,5 +116,5 @@ public class Product implements Serializable {
 
 		return transaction;
 	}
-
+	*/
 }

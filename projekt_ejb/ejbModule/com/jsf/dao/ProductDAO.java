@@ -38,7 +38,7 @@ public class ProductDAO {
 	public List<Product> getFullList() {
 		List<Product> list = null;
 
-		Query query = em.createQuery("SELECT p FROM Products p");
+		Query query = em.createQuery("SELECT p FROM Product p");
 
 		try {
 			list = query.getResultList();
@@ -54,9 +54,9 @@ public class ProductDAO {
 
 		// 1. Build query string with parameters
 		String select = "select p ";
-		String from = "from Products p ";
+		String from = "from Product p ";
 		String where = "";
-		String orderby = "order by p.type asc";
+		String orderby = "order by p.type asc, p.manufacturer asc";
 
 		String type = (String) searchParams.get("type");
 		if (type != null) {
