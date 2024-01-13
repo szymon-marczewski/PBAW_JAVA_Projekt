@@ -29,6 +29,9 @@
 
 		<p:commandButton value="Add new product"
 			action="#{productListBB.newProduct()}" style="margin-bottom:1em;" />
+			
+		<p:commandButton value="Login"
+			action="#" style="margin-bottom:1em; margin-left:1em;" />
 
 		<p:dataTable value="#{productListBB.list}" var="p">
 
@@ -83,11 +86,17 @@
 					action="#{productListBB.editProduct(p)}" />
 
 				<p:commandButton value="Delete"
-					action="#{productListBB.deleteProduct(p)}" update="@form" />
+					action="#{productListBB.deleteProduct(p)}" update="@form" style="margin-left:4px;"/>
 
+				<!--  
 				<p:button outcome="productEditGET" value="Edit (GET)">
 					<f:param name="p" value="#{p.idProduct}" />
 				</p:button>
+				-->
+				
+				<p:commandButton value="Buy"
+					action="#" />
+				
 			</p:column>
 
 		</p:dataTable>
