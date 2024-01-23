@@ -11,6 +11,15 @@
 	<title>Projekt bazodanowy</title>
 </h:head>
 <h:body style="background-color: #eee; margin: 0.5em;">
+	
+	<h:form id="form-table2" style="margin-bottom:1em;">
+			
+	<p:commandButton value="Login"
+			action="#" style= "align: right; margin-right: auto;" />
+			
+	<p:commandButton value="Your orders"
+			action="#{orderListBB.list()}" style= "align: right; margin-right: auto;" />
+	</h:form>
 
 	<p:panel header="Search options" toggleable="true" collapsed="true"
 		style="margin-bottom: 1em;">
@@ -26,13 +35,10 @@
 	<p:messages />
 
 	<h:form id="form-table" style="margin-bottom:1em;">
-
+		
 		<p:commandButton value="Add new product"
 			action="#{productListBB.newProduct()}" style="margin-bottom:1em;" />
 			
-		<p:commandButton value="Login"
-			action="#" style="margin-bottom:1em; margin-left:1em;" />
-
 		<p:dataTable value="#{productListBB.list}" var="p">
 
 			<p:column priority="4">
@@ -65,13 +71,6 @@
 			
 			<p:column>
 				<f:facet name="header">
-					<h:outputText value="availability" />
-				</f:facet>
-				<h:outputText value="#{p.availability}" />
-			</p:column>
-			
-			<p:column>
-				<f:facet name="header">
 					<h:outputText value="description" />
 				</f:facet>
 				<h:outputText value="#{p.description}" />
@@ -87,12 +86,6 @@
 
 				<p:commandButton value="Delete"
 					action="#{productListBB.deleteProduct(p)}" update="@form" style="margin-left:4px;"/>
-
-				<!--  
-				<p:button outcome="productEditGET" value="Edit (GET)">
-					<f:param name="p" value="#{p.idProduct}" />
-				</p:button>
-				-->
 				
 				<p:commandButton value="Buy"
 					action="#" />

@@ -53,7 +53,6 @@ public class ProductEditBB implements Serializable {
 	}
 
 	public String saveData() {
-		// no Person object passed
 		if (loaded == null) {
 			return PAGE_STAY_AT_THE_SAME;
 		}
