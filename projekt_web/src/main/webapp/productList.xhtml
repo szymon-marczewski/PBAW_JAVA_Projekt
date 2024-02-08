@@ -12,13 +12,15 @@
 </h:head>
 <h:body style="background-color: #eee; margin: 0.5em;">
 	
+	<p align="right" style="font-style: bold">Welcome - '[activeUser]'!</p>
+	
 	<h:form id="form-table2" style="margin-bottom:1em;">
 			
 	<p:commandButton value="Login"
-			action="#" style= "align: right; margin-right: auto;" />
+			action="userLogin.xhtml" style= "align: right; margin-right: auto;" />
 			
 	<p:commandButton value="Your orders"
-			action="#{orderListBB.list()}" style= "align: right; margin-right: auto;" />
+			action="orderList.xhtml" style= "align: right; margin-right: auto;" />
 	</h:form>
 
 	<p:panel header="Search options" toggleable="true" collapsed="true"
