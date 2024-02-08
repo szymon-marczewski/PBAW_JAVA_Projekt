@@ -9,11 +9,11 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
 
 import com.jsf.entities.Order;
+import com.jsf.entities.User;
 
 @Stateless
 public class OrderDAO {
 	private final static String UNIT_NAME = "jsfcourse-projektPU";
-
 	// Dependency injection (no setter method is needed)
 	@PersistenceContext(unitName = UNIT_NAME)
 	protected EntityManager em;
@@ -33,8 +33,11 @@ public class OrderDAO {
 	public Order find(Object id) {
 		return em.find(Order.class, id);
 	}
-
-	
+//
+	public void create(User user) {
+		em.persist(user);
+	}
+//
 	public List<Order> getFullList() {
 		List<Order> list = null;
 
@@ -54,11 +57,14 @@ public class OrderDAO {
 		// 1. Build query string with parameters
 		String select = "select p ";
 		String from = "from Order p ";
-//		String where = "where p.user = 7 ";
+//		String join = "join User u ";
+//		String on = "on p.idUser = u.idUser ";
+//		String where = "where u.idUser like 7 ";
+		String where = "where p.status like 1 ";
 		String orderby = "order by p.date";
 
 		
-		Query query = em.createQuery(select + from  + orderby);
+		Query query = em.createQuery(select + from +  where + orderby);
 
 		list = query.getResultList();
 		return list;

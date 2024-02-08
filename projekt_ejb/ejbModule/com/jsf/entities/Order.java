@@ -17,7 +17,7 @@ public class Order implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int idOrder;
+	private Integer idOrder;
 
 	@Temporal(TemporalType.DATE)
 	private Date date;
@@ -71,6 +71,8 @@ public class Order implements Serializable {
 	}
 
 	public User getUser() {
+	//	int iduser = user.getIdUser();
+		
 		return this.user;
 	}
 
@@ -78,6 +80,17 @@ public class Order implements Serializable {
 		this.user = user;
 	}
 
+	//
+	public int getIdUser() {
+		int iduser = user.getIdUser();
+		return iduser;
+	}
+	
+	//public void setIdUser(int IdUser) {
+	//	this.IdUser = getIdUser();
+	//}
+	//
+	
 	public List<Transaction> getTransactions() {
 		return this.transactions;
 	}
