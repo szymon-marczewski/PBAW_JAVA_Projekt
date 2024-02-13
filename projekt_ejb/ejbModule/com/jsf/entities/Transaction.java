@@ -33,6 +33,7 @@ public class Transaction implements Serializable {
 	private Product product;
 
 	public Transaction() {
+//		product.getIdProduct();
 	}
 
 	public int getIdTransaction() {

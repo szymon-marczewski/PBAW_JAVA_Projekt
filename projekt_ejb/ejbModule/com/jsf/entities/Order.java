@@ -30,6 +30,9 @@ public class Order implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="idUser")
 	private User user;
+	
+	@Column(name = "idUser", insertable=false, updatable=false)
+	private int idUser;
 
 	//bi-directional many-to-one association to Transaction
 	@OneToMany(mappedBy="order")
@@ -82,14 +85,10 @@ public class Order implements Serializable {
 
 	//
 	public int getIdUser() {
-		int iduser = user.getIdUser();
-		return iduser;
+	//	int iduser = user.getIdUser();
+	//	return iduser;
+		return user.getIdUser();
 	}
-	
-	//public void setIdUser(int IdUser) {
-	//	this.IdUser = getIdUser();
-	//}
-	//
 	
 	public List<Transaction> getTransactions() {
 		return this.transactions;
