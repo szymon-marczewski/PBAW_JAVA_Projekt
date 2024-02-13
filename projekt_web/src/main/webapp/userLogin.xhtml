@@ -5,11 +5,7 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
-
-<f:metadata>
-    <f:viewAction action="#{userLoginBB.onLoad()}" />
-</f:metadata>
-
+	
 <h:head>
 	<meta charset="utf-8"/>
 	<title>Projekt bazodanowy</title>
@@ -18,41 +14,29 @@
 <h:body style="background-color: #eee; margin: 0.5em;">
 
 	<p:panel toggleable="true">
-
+	<h2>Log in:</h2>
 		<h:form>
 			<h:panelGrid columns="3" cellpadding="5">
 
 				<h:outputLabel for="p-username" value="username:" />
-				<p:inputText id="p-username" required="true" requiredMessage="username"
-					validatorMessage="">
-					<f:validateLength maximum="20" />
-					<!--  #{userLoginBB.login.username} -->
+				<p:inputText id="p-username" value="#{userLoginBB.user.username}" required="true" requiredMessage="username"
+					validatorMessage="Bad password or username">
 				</p:inputText>
-				<p:message for="p-manufacturer" display="icon"/>
-<!--  
-				<h:outputLabel for="p-email" value="email:" />
-				<p:inputText id="p-email" value="#{userLoginBB.login.username}"
-					required="true" requiredMessage="email"
-					validatorMessage="">
-					<f:validateLength maximum="40" />
-				</p:inputText>
-				<p:message for="p-email" display="icon"/>
-
+				<p:message for="p-username" display="icon"/>
+				
 				<h:outputLabel for="p-password" value="password:" />
-				<p:inputText id="p-password" value="#{userLoginBB.login.username}"
-					required="true" requiredMessage="password"
-					validatorMessage="">
-					<f:validateLength maximum="40" />
-			    </p:inputText>
+				<p:inputText id="p-password" value="#{userLoginBB.user.password}" required="true" requiredMessage="password"
+					validatorMessage="Bad password or username">
+				</p:inputText>
 				<p:message for="p-password" display="icon"/>
--->				
+				
 			</h:panelGrid>
 
 			<p:messages id="msgs" />
-<!--  -
-			<p:commandButton value="Log in" action=""
-				style="margin-right: 1em;" update="@form" />
--->
+
+			<p:commandButton value="Log in" action="userLoginBB.login()"
+				style="margin-right: 1em;"/>
+
 			<p:button value="Cancel" outcome="productList.xhtml" />
 		</h:form>
 
