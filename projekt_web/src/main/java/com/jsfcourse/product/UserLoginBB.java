@@ -52,4 +52,12 @@ public class UserLoginBB implements Serializable {
 		}
 
 	}
+	
+	public String login()
+	{
+		
+		int id = user.getIdUser();
+		user.setActive(1);
+		return PAGE_STAY_AT_THE_SAME;
+	}
 }

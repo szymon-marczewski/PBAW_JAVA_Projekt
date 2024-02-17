@@ -21,6 +21,8 @@ public class ProductListBB {
 	private static final String PAGE_STAY_AT_THE_SAME = null;
 
 	private String type;
+	private int nr = 0;
+	private int end_nr = 5;
 		
 	@Inject
 	ExternalContext extcontext;
@@ -40,7 +42,7 @@ public class ProductListBB {
 	}
 
 	public List<Product> getFullList(){
-		return productDAO.getFullList();
+		return productDAO.getFullList(0, 10);
 	}
 
 	public List<Product> getList(){
