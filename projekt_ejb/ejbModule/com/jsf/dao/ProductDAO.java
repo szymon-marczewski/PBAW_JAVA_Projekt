@@ -13,7 +13,8 @@ import com.jsf.entities.Product;
 @Stateless
 public class ProductDAO {
 	private final static String UNIT_NAME = "jsfcourse-projektPU";
-
+	public int nr = 0;
+	public int end_nr = 5; 
 	// Dependency injection (no setter method is needed)
 	@PersistenceContext(unitName = UNIT_NAME)
 	protected EntityManager em;
@@ -33,12 +34,24 @@ public class ProductDAO {
 	public Product find(Object id) {
 		return em.find(Product.class, id);
 	}
-
+/*
+	public void less()
+	{
+		int nr = 0;
+		getList(null);
+	}
 	
-	public List<Product> getFullList() {
+	public List<Product> more()
+	{
+		int nr = 10;
+		int end_nr = 20;
+		return getFullList(nr, end_nr);
+	}
+*/
+	public List<Product> getFullList(int nr, int end_nr) {
 		List<Product> list = null;
 
-		Query query = em.createQuery("SELECT p FROM Product p");
+		Query query = em.createQuery("SELECT p FROM Product p").setFirstResult(0).setMaxResults(5);
 
 		try {
 			list = query.getResultList();
@@ -73,7 +86,8 @@ public class ProductDAO {
 		if (type != null) {
 			query.setParameter("type", type+"%");
 		}
-		
+		//tu działa XD
+		query.setFirstResult(0).setMaxResults(5);
 		try {
 			list = query.getResultList();
 		} catch (Exception e) {
